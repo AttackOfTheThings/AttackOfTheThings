@@ -8,6 +8,9 @@ public class EnemyManager : MonoBehaviour
     public GameObject player;
     public Animator enemyAnimator;
     public float damage = 20f;
+    public float enemyHealth = 100f;
+    public GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,5 +38,17 @@ public class EnemyManager : MonoBehaviour
             Debug.Log("Eating");
             player.GetComponent<PlayerManager>().Hit(damage);
         }
+    }
+
+    public void Hit(float damageEnemy)
+    {
+        enemyHealth -= damageEnemy;
+        if(enemyHealth <= 0)
+        {
+            gameManager.enemiesAlive--;
+            Destroy(gameObject);
+            Debug.Log("Died");
+        }
+        Debug.Log(enemyHealth);
     }
 }

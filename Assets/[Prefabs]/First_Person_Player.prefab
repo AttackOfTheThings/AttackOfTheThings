@@ -312,6 +312,7 @@ GameObject:
   - component: {fileID: 1074947139545082700}
   - component: {fileID: 1912464716}
   - component: {fileID: 1912464715}
+  - component: {fileID: 1912464717}
   m_Layer: 0
   m_Name: First_Person_Player
   m_TagString: Player
@@ -369,11 +370,25 @@ MonoBehaviour:
   speed: 12
   gravity: -9.8
   isGrounded: 0
-  groundCheck: {fileID: 0}
+  groundCheck: {fileID: 982876228}
   groundDistacne: 0.4
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
+  jumpHight: 2
+--- !u!114 &1912464717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053720938546535054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18560befeab5664ea9755b5cae74cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &1287447130382298897
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +465,7 @@ Animator:
   m_GameObject: {fileID: 1623905268483656713}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b2c56e27ac69e64478bf51f155880b4c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -471,7 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f91ab460ac6fca4298d7b385f0c18f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
+  mouseSensitivity: 380
   playerBody: {fileID: 1074947139545082700}
 --- !u!1 &2222698514141142468
 GameObject:
@@ -1291,6 +1306,22 @@ Transform:
   m_Father: {fileID: 729143829160890537}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &827470534304527403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8926498255314773891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f77ee0ab67ad3045a557e2e2bea40ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 963194225}
+  weaponRange: 100
+  weaponDamage: 50
+  playerAnimator: {fileID: 4924542356035537769}
 --- !u!1001 &9072776174139875196
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1348,6 +1379,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ffe500a9db1a1f4198b80b46bc35bc6, type: 3}
+--- !u!1 &8926498255314773891 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 435075660291143935, guid: 6ffe500a9db1a1f4198b80b46bc35bc6, type: 3}
+  m_PrefabInstance: {fileID: 9072776174139875196}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4673434351607697234 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4410051066877661230, guid: 6ffe500a9db1a1f4198b80b46bc35bc6, type: 3}
