@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -10,16 +11,19 @@ public class EnemyManager : MonoBehaviour
     public float damage = 20f;
     public float enemyHealth = 100f;
     public GameManager gameManager;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        //slider.transform.LookAt(player.transform);
         GetComponent<NavMeshAgent>().destination = player.transform.position;
         if(GetComponent<NavMeshAgent>().velocity.magnitude > 1)
         {
@@ -43,6 +47,7 @@ public class EnemyManager : MonoBehaviour
     public void Hit(float damageEnemy)
     {
         enemyHealth -= damageEnemy;
+        
         if(enemyHealth <= 0)
         {
             gameManager.enemiesAlive--;
