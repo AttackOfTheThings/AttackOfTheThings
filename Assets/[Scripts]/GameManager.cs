@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public Text roundStatistics;
     public GameObject pauseMenu;
 
+    public Animator fadeScreenAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,8 +63,14 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         AudioListener.volume = 1;
-        SceneManager.LoadScene(0);
+        fadeScreenAnimator.SetTrigger("FadeIn");
+        Invoke("LoadMainMenu", 0.5f);
 
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
     public void GameOver()
     {

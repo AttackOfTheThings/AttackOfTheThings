@@ -71,10 +71,11 @@ public class EnemyManager : MonoBehaviour
         {
             enemyAnimator.SetTrigger("isDead");
             gameManager.enemiesAlive--;
-            Destroy(gameObject, 10f);
+            Destroy(gameObject, 3f);
             Destroy(GetComponent<NavMeshAgent>());
             Destroy(GetComponent<EnemyManager>());
             Destroy(GetComponent<CapsuleCollider>());
+            //Destroy(GetComponent<Canvas>());
             Debug.Log("Died");
         }
         Debug.Log(enemyHealth);
