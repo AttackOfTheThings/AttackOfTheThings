@@ -59,6 +59,8 @@ public class GameManager : MonoBehaviour
 
     public void ReturnToTitle()
     {
+        Time.timeScale = 1;
+        AudioListener.volume = 1;
         SceneManager.LoadScene(0);
 
     }
@@ -74,6 +76,7 @@ public class GameManager : MonoBehaviour
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
+        AudioListener.volume = 0;
     }
 
     public void ContinueGame()
@@ -81,7 +84,7 @@ public class GameManager : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
-
+        AudioListener.volume = 1;
 
     }
 }

@@ -8,10 +8,16 @@ public class WeaponManager : MonoBehaviour
     public float weaponRange = 100f;
     public int weaponDamage = 50;
     public Animator playerAnimator;
+
+    public ParticleSystem muzzleFlash;
+    public GameObject hitParticle;
+
+    public AudioClip gunShot;
+    public AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,6 +37,8 @@ public class WeaponManager : MonoBehaviour
     }
     void ShootWeapon()
     {
+        muzzleFlash.Play();
+        audioSource.PlayOneShot(gunShot);
         playerAnimator.SetBool("isShooting", true);
         RaycastHit hit;
         //(origin, directionTraveled, whatItHit, weaponRange)
@@ -40,6 +48,10 @@ public class WeaponManager : MonoBehaviour
             if(enemyManager !=null)
             {
                 enemyManager.Hit(weaponDamage);
+                GameObject instParticle = Instantiate(hitParticle, hit.point, Quaternion.LookRotation(hit.normal)); //intantiate particles
+                instParticle.transform.parent = hit.transform;
+
+                Destroy(instParticle, 2f);
             }
         }
     }
