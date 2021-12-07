@@ -77,6 +77,7 @@ public class EnemyManager : MonoBehaviour
             Destroy(GetComponent<CapsuleCollider>());
             //Destroy(GetComponent<Canvas>());
             Debug.Log("Died");
+            GameManager._instance.count++;
         }
         Debug.Log(enemyHealth);
     }

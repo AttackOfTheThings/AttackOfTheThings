@@ -11,26 +11,32 @@ public class GameManager : MonoBehaviour
     public GameObject[] spawnPoints;
     public GameObject enemyPrefab;
     public Text roundNumber;
+    public int count = -1;
     public GameObject gameOverScreen;
     public Text roundStatistics;
     public GameObject pauseMenu;
 
     public Animator fadeScreenAnimator;
 
+    public static GameManager _instance;
+
     // Start is called before the first frame update
     void Start()
     {
+        _instance = this;
         Time.timeScale = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(enemiesAlive == 0)
+        roundNumber.text = count.ToString();
+        if (enemiesAlive == 0)
         {
             round++;
             NextWave(round);
-            roundNumber.text = "Round: " + round.ToString();
+            //roundNumber.text = "Round: " + round.ToString();
+            
         }
 
         if(Input.GetKeyDown(KeyCode.Escape))

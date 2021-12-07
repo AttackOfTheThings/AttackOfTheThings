@@ -47,6 +47,18 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpHight * -2 * gravity);
         }
+
+        // concentrate to shoot
+        if(Input.GetKey(KeyCode.LeftShift) && isGrounded)
+        {
+            Camera.main.fieldOfView = 30;
+        }
+        else
+        {
+            Camera.main.fieldOfView = 50;
+        }
+
+
         
     }
 }
