@@ -548,7 +548,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 312238264}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: First
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1014,8 +1014,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Instructions\nShoot Zombies to Unlock the Exit\nFind the Exit (Its the
-    Floor with blue light) \nRinse and Repeat for three stages"
+  m_Text: "Instructions\nShoot Zombies and Find the Exit\nThe Exit (Its the Floor
+    with blue light) \nRinse and Repeat for three stages"
 --- !u!222 &1716029947
 CanvasRenderer:
   m_ObjectHideFlags: 0

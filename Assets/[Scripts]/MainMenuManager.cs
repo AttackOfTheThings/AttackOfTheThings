@@ -20,5 +20,23 @@ public class MainMenuManager : MonoBehaviour
     {
         Application.Quit();
     }
+     
+    public void BackToMain()
+    {
+        SceneManager.LoadScene(0);
+    }
 
+    public void First()
+    {
+        SceneManager.LoadScene(3);
+    }
+    public void InstructionScreen()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
 }
