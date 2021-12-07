@@ -7,6 +7,7 @@ public class MouseLookCam : MonoBehaviour
     public float mouseSensitivity = 2000f;
     public Transform playerBody;
     float xRotation = 0f;
+    public float speed = 0.8f;
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +24,8 @@ public class MouseLookCam : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        playerBody.Rotate(Vector3.up * mouseX);
+        transform.localRotation = Quaternion.Euler(xRotation* speed, 0f, 0f);
+        playerBody.Rotate(Vector3.up * mouseX* speed);
 
     }
 }

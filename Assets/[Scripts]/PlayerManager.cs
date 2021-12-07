@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class PlayerManager : MonoBehaviour
 {
     public float health = 100f;
+    public float  maxHealth = 100;
+    public float currentHealth;
     public Text healthText;
     public GameManager gameManager;
     public GameObject playerCamera;
@@ -15,10 +17,15 @@ public class PlayerManager : MonoBehaviour
     //private Quaternion playerCameraOriginalRotation;
     public CanvasGroup hurtPannel;
 
+    public HealthBar healthBar;
+
+    
 
     public void Hit(float damage)
     {
         health -= damage;
+        currentHealth -= damage;
+        healthBar.SetHealth(health);
         healthText.text = "Health: " + health.ToString() + " %";
         if (health <= 0)
         {
@@ -37,6 +44,8 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         //playerCameraOriginalRotation = playerCamera.transform.localRotation;
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
